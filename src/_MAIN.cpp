@@ -1,5 +1,9 @@
 #include <sys/stat.h>
 
+#ifdef _WIN32
+    #include <windows.h>
+#endif
+
 #include <tclap/CmdLine.h>
 
 #include "BASE_joint.hpp"
@@ -173,7 +177,13 @@ int main(int argc,char *argv[])
     
     // MAKE DIRECTORY
     std::string basename = output.substr(0,output.size()-4);
-    mkdir(basename.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+    #ifdef _WIN32
+        CreateDirectory(basename.c_str(),NULL);
+    #elif __APPLE__
+        mkdir(basename.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+    #else
+        #error "Unknown Compiler"
+    #endif
     
     // LOAD INPUT
     std::vector<image::basic_image<double,3> > input(iNrOfChannels);

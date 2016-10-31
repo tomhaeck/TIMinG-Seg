@@ -16,7 +16,7 @@ public:
     bool open(const char_type* file_name)
     {
         in.open(file_name,std::ios::binary);
-        return in;
+        return in.is_open();
     }
     void read(void* buf,size_t size)
     {
@@ -37,7 +37,7 @@ public:
     bool open(const char_type* file_name)
     {
         out.open(file_name,std::ios::binary);
-        return out;
+        return out.is_open();
     }
     void write(const void* buf,size_t size)
     {
