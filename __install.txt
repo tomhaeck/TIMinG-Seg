@@ -11,15 +11,23 @@
 //FROM SOURCE:
 /////////////////////
 
+
 * MAC OSX:
 
->> g++ src/_MAIN.cpp -o2 -I include
+Navigate in the terminal to the TIMinG-Seg folder.
+Enter on the command line:
+
+>> g++ src/_MAIN.cpp -o2 -I include -o TIMinG-Seg
+
 
 * WINDOWS: 
 
 use MinGW, https://sourceforge.net/projects/mingw-w64/​
 add MinGW/bin to the system path
 
->> g++ src\_MAIN.cpp -o2 -I include
+Navigate in the terminal to the TIMinG-Seg folder.
+Enter on the command line:
+
+>> g++ src\_MAIN.cpp -o2 -I include -o TIMinG-Seg
 
 

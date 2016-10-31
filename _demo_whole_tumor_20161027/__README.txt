@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Patient HG0001 from the MICCAI BRATS 2012-2013 training data set [1]
 
 # STEP 1: BIAS FIELD CORRECTION WITH METHOD AND SOFTWARE OF YOUR CHOICE

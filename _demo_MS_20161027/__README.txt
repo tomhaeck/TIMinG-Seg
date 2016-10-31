@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Patient training01_01 from the ISBI Longitudinal MS Lesion Segmentation 2015 Challenge [1]
 
 # STEP 1: BIAS FIELD CORRECTION WITH METHOD AND SOFTWARE OF YOUR CHOICE

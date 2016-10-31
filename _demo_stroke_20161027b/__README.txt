@@ -1,6 +1,4 @@
-#!/bin/bash
-
-# Patient Nr1 from the MICCAI Ischemic Stroke Lesion Segmentation (ISLES) 2015 Challenge SPES data set [1].  Patient images were flipped along y-axis.
+# Patient Nr3 from the MICCAI Ischemic Stroke Lesion Segmentation (ISLES) 2015 Challenge SPES data set [1].  Patient images were flipped along y-axis.
 
 # STEP 1: BIAS FIELD CORRECTION WITH METHOD AND SOFTWARE OF YOUR CHOICE
 # recommended:
@@ -25,6 +23,6 @@ TIMinG-Seg -i t2_bias.nii -i ttp.nii -p _WM_warped.nii -p _GM_warped.nii -p _CSF
 
 
 
-# [1] O. Maier et al.. “ISLES 2015-A public evaluation benchmark for ischemic stroke lesion segmentation from multispectral MRI”. In: Media 35 (2017), pp. 250–269.
+# [1] O. Maier et al. “ISLES 2015-A public evaluation benchmark for ischemic stroke lesion segmentation from multispectral MRI”. In: Media 35 (2017), pp. 250–269.
 # [2] B. B. Avants, C. L. Epstein, M. Grossman, and J. C. Gee. “Symmetric diffeomorphic image registration with cross-correlation: evaluating automated labeling of elderly and neurodegenerative brain”. In: Media 12.1 (2008), pp. 26–41.
 # [2] http://stnava.github.io/ANTs/ (on October 2016)
