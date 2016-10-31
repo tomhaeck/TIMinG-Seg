@@ -6,4 +6,4 @@ TIMinG-Seg implements the MR lesion segmentation method as described by Haeck et
 Proceedings IEEE ISBI 2016.  (art.nr. 424) (pp. 265-268).
 
 Installation instructions are found in '__install'.
-Example images, segmentations and parameter settings are found in '_demo_*'.
+Example images, segmentations and parameter settings are found in '__demo__*'.
