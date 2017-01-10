@@ -12,7 +12,7 @@
 /////////////////////
 
 
-* MAC OSX:
+* MAC OSX / LINUX
 
 Navigate in the terminal to the TIMinG-Seg folder.
 Enter on the command line:
