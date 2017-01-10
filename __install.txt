@@ -3,8 +3,6 @@
 /////////////////////
 
 * MAC OSX 10.9.5:	TIMinG-Seg-OSX10.9.5-64bit
-* MAC OSX 10.11.5:	TIMinG-Seg-OSX10.11.5-64bit
-* WINDOWS 7:		TIMinG-Seg-Win7-64bit
 
 
 /////////////////////
