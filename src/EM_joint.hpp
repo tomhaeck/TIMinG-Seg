@@ -130,7 +130,7 @@ void EM_joint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             }
                         }
                 if (normalizationOut>pMin) meanOut /= normalizationOut;
-                else throw std::string("error. NormalizationOut<=0.0.  Everything is lesion");
+                else throw std::string("error. NormalizationOut<=0.0.  Everything is lesion.");
                 pMeanOut[j][l]=meanOut;
             }
             pNormalizationOut[j]=normalizationOut;
@@ -179,7 +179,7 @@ void EM_joint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                        for (int ix=0; ix< iNx; ix++)
                        {
                            if(brainMask[X3(ix,iy,iz)]){
-                               if(iHyperHypoIntens_toWhich[l]<0){
+                               if(iHyperHypoIntens_toWhich[l]<0 || iIter<=5){
                                    meanIn += im[l][X3(ix,iy,iz)]*posteriorIn[j][X3(ix,iy,iz)]*u[X3(ix,iy,iz)];
                                    normalizationIn += posteriorIn[j][X3(ix,iy,iz)]*u[X3(ix,iy,iz)];
                                }
@@ -196,7 +196,7 @@ void EM_joint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                            }
                         }
                if (normalizationIn>pMin) meanIn /= normalizationIn;
-               else throw std::string("error. NormalizationIn<=0.0.  No lesion found in at least one of the channels");
+               else throw std::string("error.  NormalizationIn<=0.0.  No lesion found in at least one of the channels.");
                pMeanIn[j][l]=meanIn;
                pNormalizationIn[j][l]=normalizationIn;
            }
@@ -219,7 +219,7 @@ void EM_joint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             for (int ix=0; ix< iNx; ix++)
                             {
                                 if(brainMask[X3(ix,iy,iz)]){
-                                    if(iHyperHypoIntens_toWhich[l]<0){
+                                    if(iHyperHypoIntens_toWhich[l]<0 || iIter<=5){
                                         sigmaIn += (im[l][X3(ix,iy,iz)]-pMeanIn[j][l])*(im[m][X3(ix,iy,iz)]-pMeanIn[j][m])*posteriorIn[j][X3(ix,iy,iz)]*u[X3(ix,iy,iz)];
                                     }
                                     else{
@@ -259,7 +259,7 @@ void EM_joint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                         }
                 
                 if (priorNormalizationIn>pMin) priorIn /= priorNormalizationIn;
-                else throw std::string("priorNormalizationIn<=0.0.  One of the Gaussians has weight zero");
+                else throw std::string("error.  priorNormalizationIn<=0.0.  One of the Gaussians has weight zero");
                 pPriorIn[j] = priorIn;
         }
         

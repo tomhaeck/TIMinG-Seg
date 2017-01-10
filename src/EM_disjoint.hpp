@@ -145,7 +145,7 @@ void EM_disjoint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             }
                         }
                 if (normalizationOut>pMin) meanOut /= normalizationOut;
-                else throw std::string("error. NormalizationOut<=0.0.  Everything is lesion in at least one of the channels");
+                else throw std::string( "error. NormalizationOut<=0.0.  Everything is lesion");
                 pMeanOut[j][l]=meanOut;
                 pNormalizationOut[j][l]=normalizationOut;
             }
@@ -198,7 +198,7 @@ void EM_disjoint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             if(brainMask[X3(ix,iy,iz)]){
                                 pixel_type sum = 0.0;
                                 for(int t=0; t<iNrOfLesionStates; t++){
-                                    if(iHyperHypoIntens_toWhich[l]<0){
+                                    if(iHyperHypoIntens_toWhich[l]<0 || iIter<=5){
                                         sum+=posteriorIn[t][j][X3(ix,iy,iz)]*posterior[t][X3(ix,iy,iz)]*lesionIndicator[t][l];
                                     }
                                     else{
@@ -215,7 +215,7 @@ void EM_disjoint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             }
                         }
                 if (normalizationIn>pMin) meanIn /= normalizationIn;
-                else throw std::string("error. NormalizationIn<=0.0.  No lesion found in at least one of the channels");
+                else throw std::string("error.  NormalizationIn<=0.0.  No lesion found in at least one of the channels.");
                 pMeanIn[j][l]=meanIn;
                 pNormalizationIn[j][l]=normalizationIn;
             }
@@ -241,7 +241,7 @@ void EM_disjoint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             if(brainMask[X3(ix,iy,iz)]){
                                 pixel_type sum = 0.0;
                                 for(int t=0; t<iNrOfLesionStates; t++){
-                                    if(iHyperHypoIntens_toWhich[l]<0){
+                                    if(iHyperHypoIntens_toWhich[l]<0 || iIter<=5){
                                         sum+=posteriorIn[t][j][X3(ix,iy,iz)]*posterior[t][X3(ix,iy,iz)]*lesionIndicator[t][l];
                                     }
                                     else{
@@ -280,7 +280,7 @@ void EM_disjoint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                                 pixel_type sum1 = 0.0;
                                 pixel_type sum2 = 0.0;
                                 for(int t=0; t<iNrOfLesionStates; t++){
-                                    if(iHyperHypoIntens_toWhich[l]<0){
+                                    if(iHyperHypoIntens_toWhich[l]<0 || iIter<=5){
                                         sum1+=posteriorIn[t][j][X3(ix,iy,iz)]*posterior[t][X3(ix,iy,iz)]*lesionIndicator[t][l];
                                         sum2+=posterior[t][X3(ix,iy,iz)]*lesionIndicator[t][l];
                                     }
@@ -300,7 +300,7 @@ void EM_disjoint(std::vector<image::basic_image<pixel_type,dimension> >& im,
                             }
                         }
                 if (normalizationIn>pMin) priorIn /= normalizationIn;
-                else throw std::string("error. priorNormalizationIn<=0.0.  One of the Gaussians has weight zero in at least one of the channels");
+                else throw std::string("error.  priorNormalizationIn<=0.0.  One of the Gaussians has weight zero in at least one of the channels");
                 pPriorIn[j][l]=priorIn;
             }
         }
